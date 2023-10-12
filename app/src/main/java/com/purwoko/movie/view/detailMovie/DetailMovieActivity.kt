@@ -67,13 +67,16 @@ class DetailMovieActivity : BaseActivity<DetailMovieViewModel, ActivityDetailMov
         viewModel.movieInfoLiveData.onResult { state ->
             when (state) {
                 is ViewState.Success -> {
+                    binding.stateLayout.toContent()
                     updateUI(state.data)
                 }
                 is ViewState.Failed -> {
-                    LogData("ERROR " + state.message)
+                    binding.stateLayout.toError {
+                        viewModel.getMovieId(movie?.id.orZero())
+                    }
                 }
                 is ViewState.Loading -> {
-                    LogData("LOADING..")
+                    binding.stateLayout.toLoading()
                 }
             }
         }
