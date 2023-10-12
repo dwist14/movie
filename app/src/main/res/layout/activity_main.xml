@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dark_navy"
+    tools:context=".view.main.MainActivity">
+
+    <com.erkutaras.statelayout.StateLayout
+        android:id="@+id/state_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:sl_state="loading">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_list_movie"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/dp_4" />
+
+    </com.erkutaras.statelayout.StateLayout>
+
+</RelativeLayout>
